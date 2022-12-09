@@ -47,7 +47,7 @@ label {
     margin: 10px 0;
 }
 select {
-    width: 30%;
+    width: 100px;
     font-size: 18px;
     margin: 0 5px;
 }
