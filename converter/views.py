@@ -10,9 +10,10 @@ def index(request):
         from_currency = request.POST["from_currency"]
         to_currency = request.POST["to_currency"]
         amount_of_money = request.POST["amount_of_money"]
-        print(from_currency, to_currency, amount_of_money)
         result = get_result(from_currency, to_currency, amount_of_money)
-        print(result)
-        context["result"] = result
+        if result:
+            context["result"] = result
+        else:
+            context["result"] = "Sorry an error occurred"
 
     return render(request, "converter/index.html", context)

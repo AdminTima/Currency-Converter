@@ -13,7 +13,7 @@
         <form class="convert_form" method="post">
         {% csrf_token %}
             <label for="amount">Amount of money</label>
-            <input id="amount" type="number" name="amount_of_money">
+            <input required id="amount" type="number" name="amount_of_money">
 
             <div class="from_to_block">
                 <label for="from">From</label>

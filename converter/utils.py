@@ -14,8 +14,8 @@ def get_exchange_rates(pair):
     try:
         response = requests.get(api_url, params=params)
     except Exception as err:
-        print(err)
-        return
+        return print(err)
+
     json_resp = response.json()
     data = json_resp.get("data", None)
     rate = data.get(pair)
@@ -31,13 +31,12 @@ def convert(amount_of_money, rate):
 
 
 def get_result(from_currency, to_currency, amount_of_money):
+
     if from_currency == to_currency:
         return amount_of_money
 
     pair = from_currency + to_currency
-    print(pair)
     rate = get_exchange_rates(pair)
-    print(rate)
     return convert(amount_of_money, rate)
 
 
