@@ -31,6 +31,9 @@ def convert(amount_of_money, rate):
 
 
 def get_result(from_currency, to_currency, amount_of_money):
+    if from_currency == to_currency:
+        return amount_of_money
+
     pair = from_currency + to_currency
     print(pair)
     rate = get_exchange_rates(pair)
