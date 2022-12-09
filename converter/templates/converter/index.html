@@ -8,5 +8,32 @@
 
 
 {% block body %}
-    <h1>Currency convetre</h1>
+    <h1>Currency converter</h1>
+
+        <form class="convert_form" method="post">
+        {% csrf_token %}
+            <label for="amount">Amount of money</label>
+            <input id="amount" type="number" name="amount_of_money">
+
+            <div class="from_to_block">
+                <label for="from">From</label>
+                <select id="from" name="from_currency">
+                {% for key, value in currency_list.items %}
+                    <option value="{{ value }}">{{ key }}</option>
+                {% endfor %}
+                </select>
+
+                <label for="to">To</label>
+                <select id="to" name="to_currency">
+                    {% for key, value in currency_list.items %}
+                        <option value="{{ value }}">{{ key }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button class="convert_btn">Convert</button>
+        </form>
+            {% if result %}
+                <span class="result">Result: {{ result }}</span>
+            {% endif %}
+
 {% endblock %}
